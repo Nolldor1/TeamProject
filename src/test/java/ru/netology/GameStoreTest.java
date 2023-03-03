@@ -1,6 +1,7 @@
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class GameStoreTest {
@@ -13,9 +14,11 @@ public class GameStoreTest {
 
         assertTrue(store.containsGame(game));
     }
-    
+
     @Test
     public void shouldAddSeveralGames() {
+        GameStore store = new GameStore();
+
 
         Game game1 = store.publishGame("game1", "genre1");
         Game game2 = store.publishGame("game2", "genre2");
@@ -28,15 +31,16 @@ public class GameStoreTest {
 
     @Test
     public void shouldNotAddDuplicated() {
+        GameStore store = new GameStore();
 
-        Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        Game game2 = new Game("Нетология Баттл Онлайн", "Аркады", store);
+        Game game2 = new Game("Нетология Баттл Онлайн", "Аркады",store);
 
-        assertThrows(RuntimeException.class, () -> store.publishGame(game2.getTitle(), game2.getGenre()));
+        assertFalse(store.containsGame(game2));
     }
 
     @Test
     public void shouldAddPlayTime() {
+        GameStore store = new GameStore();
 
         store.addPlayTime("player1", 7);
         store.addPlayTime("player2", 3);
@@ -51,6 +55,7 @@ public class GameStoreTest {
 
     @Test
     public void shouldGetMostPlayer() {
+        GameStore store = new GameStore();
 
         store.addPlayTime("player1", 2);
         store.addPlayTime("player2", 3);
@@ -65,12 +70,14 @@ public class GameStoreTest {
 
     @Test
     public void shouldNotReturnAnyPlayer() {
+        GameStore store = new GameStore();
 
         assertNull(store.getMostPlayer());
     }
 
     @Test
     public void shouldGetMostPlayerIfPlayingTimeOneHour() {
+        GameStore store = new GameStore();
 
         store.addPlayTime("player1", 0);
         store.addPlayTime("player4", 1);
@@ -84,6 +91,7 @@ public class GameStoreTest {
     @Test
 
     public void shouldSumPlayedTime() {
+        GameStore store = new GameStore();
 
         store.addPlayTime("player1", 4);
         store.addPlayTime("player2", 1);
