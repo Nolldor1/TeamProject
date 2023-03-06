@@ -36,7 +36,7 @@ public class PlayerTest {
         player.play(game2, 2);
 
         int expected = 13;
-        int actual = player.sumGenre("PRG");
+        int actual = player.sumGenre("RPG");
         assertEquals(expected, actual);
     }
 
@@ -111,7 +111,7 @@ public class PlayerTest {
         Player player = new Player("Petya");
         player.installGame(game);
         player.play(game, 3);
-        player.installGame(game);
+        player.installGame(game2);
 
         int expected = 3;
         int actual = player.sumGenre(game.getGenre());
