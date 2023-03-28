@@ -23,7 +23,6 @@ public class GameStore {
         Game game = new Game(title, genre, this);
         games.add(game);
         return game;
-
     }
 
     /**
@@ -80,5 +79,4 @@ public class GameStore {
         }
         return sum;
     }
-
 }

@@ -1,6 +1,7 @@
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
@@ -19,6 +20,7 @@ public class PlayerTest {
         int actual = player.sumGenre(game.getGenre());
         assertEquals(expected, actual);
     }
+
     @Test
     //должен суммировать сыгранное время двух игр одного жанра
     public void shouldSumGenreTwoGames() {
@@ -51,10 +53,9 @@ public class PlayerTest {
         Player player = new Player("Petya");
         player.installGame(game);
 
-
         assertThrows(RuntimeException.class, () -> {
+            System.out.print("Игра " + game2.getTitle() + " не установлена");
             player.play(game2, 2);
-
         });
     }
 
