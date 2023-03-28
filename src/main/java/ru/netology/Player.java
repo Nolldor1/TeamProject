@@ -44,7 +44,6 @@ public class Player {
             throw new RuntimeException("Игра " + game.getTitle() + " не установлена");
         }
         return playedTime.get(game);
-
     }
 
     //    /** Метод принимает жанр игры (одно из полей объекта игры) и
